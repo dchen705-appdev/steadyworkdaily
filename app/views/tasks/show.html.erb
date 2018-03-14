@@ -32,3 +32,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Task has many weekly_sub_tasks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Weekly Sub Tasks
+      </li>
+
+      <% @task.weekly_sub_tasks.each do |weekly_sub_task| %>
+        <li class="list-group-item">
+          <a href="/weekly_sub_tasks/<%= weekly_sub_task.id %>">
+            <%= weekly_sub_task.week_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/weekly_sub_tasks/<%= weekly_sub_task.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/weekly_sub_tasks/<%= weekly_sub_task.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_weekly_sub_task/<%= weekly_sub_task.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
