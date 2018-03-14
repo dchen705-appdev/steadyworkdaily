@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Week</dt>
-      <dd><%= @weekly_sub_task.week_id %></dd>
+      <dd>
+        <% if @weekly_sub_task.week.present? %>
+          <a href="/weeks/<%= @weekly_sub_task.week_id %>">
+            <%= @weekly_sub_task.week.start_datetime %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Task</dt>
-      <dd><%= @weekly_sub_task.task_id %></dd>
+      <dd>
+        <% if @weekly_sub_task.task.present? %>
+          <a href="/tasks/<%= @weekly_sub_task.task_id %>">
+            <%= @weekly_sub_task.task.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Task name</dt>
       <dd><%= @weekly_sub_task.task_name %></dd>

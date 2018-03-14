@@ -12,7 +12,13 @@
       <dd><%= @week.end_datetime %></dd>
 
       <dt>User</dt>
-      <dd><%= @week.user_id %></dd>
+      <dd>
+        <% if @week.user.present? %>
+          <a href="/users/<%= @week.user_id %>">
+            <%= @week.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
