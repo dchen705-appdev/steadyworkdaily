@@ -19,7 +19,7 @@
       <tr>
         <td><%= week.start_datetime %></td>
         <td><%= week.end_datetime %></td>
-        <td><%= week.user_id %></td>
+        <td><%= week.user.email %></td>
         <td>
           <a href="/weeks/<%= week.id %>" class="btn btn-primary">Show</a>
           <a href="/weeks/<%= week.id %>/edit" class="btn btn-warning">Edit</a>
