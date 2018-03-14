@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "tasks#index"
   # Routes for the Weekly_sub_task resource:
   # CREATE
   get "/weekly_sub_tasks/new", :controller => "weekly_sub_tasks", :action => "new"
