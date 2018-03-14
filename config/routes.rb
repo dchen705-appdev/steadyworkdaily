@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Weekly_sub_task resource:
+  # CREATE
+  get "/weekly_sub_tasks/new", :controller => "weekly_sub_tasks", :action => "new"
+  post "/create_weekly_sub_task", :controller => "weekly_sub_tasks", :action => "create"
+
+  # READ
+  get "/weekly_sub_tasks", :controller => "weekly_sub_tasks", :action => "index"
+  get "/weekly_sub_tasks/:id", :controller => "weekly_sub_tasks", :action => "show"
+
+  # UPDATE
+  get "/weekly_sub_tasks/:id/edit", :controller => "weekly_sub_tasks", :action => "edit"
+  post "/update_weekly_sub_task/:id", :controller => "weekly_sub_tasks", :action => "update"
+
+  # DELETE
+  get "/delete_weekly_sub_task/:id", :controller => "weekly_sub_tasks", :action => "destroy"
+  #------------------------------
+
   # Routes for the Week resource:
   # CREATE
   get "/weeks/new", :controller => "weeks", :action => "new"

@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Weekly Sub Task #<%= @weekly_sub_task.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Week</dt>
+      <dd><%= @weekly_sub_task.week_id %></dd>
+
+      <dt>Task</dt>
+      <dd><%= @weekly_sub_task.task_id %></dd>
+
+      <dt>Task name</dt>
+      <dd><%= @weekly_sub_task.task_name %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/weekly_sub_tasks" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/weekly_sub_tasks/<%= @weekly_sub_task.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_weekly_sub_task/<%= @weekly_sub_task.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

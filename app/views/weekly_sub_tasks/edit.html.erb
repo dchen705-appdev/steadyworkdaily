@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @weekly_sub_task.errors.any? %>
+  <% @weekly_sub_task.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Weekly Sub Task #<%= @weekly_sub_task.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_weekly_sub_task/<%= @weekly_sub_task.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for week_id -->
+      <div class="form-group">
+        <label for="week_id" class="control-label">
+          Week
+        </label>
+
+        <input type="text" id="week_id" name="week_id" placeholder="Week" class="form-control" value="<%= @weekly_sub_task.week_id %>">
+      </div>
+
+      <!-- Label and input for task_id -->
+      <div class="form-group">
+        <label for="task_id" class="control-label">
+          Task
+        </label>
+
+        <input type="text" id="task_id" name="task_id" placeholder="Task" class="form-control" value="<%= @weekly_sub_task.task_id %>">
+      </div>
+
+      <!-- Label and input for task_name -->
+      <div class="form-group">
+        <label for="task_name" class="control-label">
+          Task name
+        </label>
+
+        <input type="text" id="task_name" name="task_name" placeholder="Task name" class="form-control" value="<%= @weekly_sub_task.task_name %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Weekly Sub Task
+      </button>
+      or
+      <a href="/weekly_sub_tasks/<%= @weekly_sub_task.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Weekly sub tasks
+    <a href="/weekly_sub_tasks/new" class="btn btn-lg btn-success">New Weekly sub task</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Week</th>
+        <th>Task</th>
+        <th>Task name</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @weekly_sub_tasks.each do |weekly_sub_task| %>
+      <tr>
+        <td><%= weekly_sub_task.week_id %></td>
+        <td><%= weekly_sub_task.task_id %></td>
+        <td><%= weekly_sub_task.task_name %></td>
+        <td>
+          <a href="/weekly_sub_tasks/<%= weekly_sub_task.id %>" class="btn btn-primary">Show</a>
+          <a href="/weekly_sub_tasks/<%= weekly_sub_task.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_weekly_sub_task/<%= weekly_sub_task.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
