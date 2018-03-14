@@ -1,6 +1,6 @@
 class WeeksController < ApplicationController
   def index
-    @weeks = Week.all
+    @weeks = Week.page(params[:page]).per(10)
 
     render("weeks/index.html.erb")
   end

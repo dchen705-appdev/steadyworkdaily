@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.all
+    @tasks = Task.page(params[:page]).per(10)
 
     render("tasks/index.html.erb")
   end

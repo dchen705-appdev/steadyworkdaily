@@ -1,6 +1,6 @@
 class WeeklySubTasksController < ApplicationController
   def index
-    @weekly_sub_tasks = WeeklySubTask.all
+    @weekly_sub_tasks = WeeklySubTask.page(params[:page]).per(10)
 
     render("weekly_sub_tasks/index.html.erb")
   end
