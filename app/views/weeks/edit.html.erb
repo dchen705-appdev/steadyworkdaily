@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @week.errors.any? %>
+  <% @week.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Week #<%= @week.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_week/<%= @week.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for start_datetime -->
+      <div class="form-group">
+        <label for="start_datetime" class="control-label">
+          Start datetime
+        </label>
+
+        <input type="text" id="start_datetime" name="start_datetime" placeholder="Start datetime" class="form-control" value="<%= @week.start_datetime %>">
+      </div>
+
+      <!-- Label and input for end_datetime -->
+      <div class="form-group">
+        <label for="end_datetime" class="control-label">
+          End datetime
+        </label>
+
+        <input type="text" id="end_datetime" name="end_datetime" placeholder="End datetime" class="form-control" value="<%= @week.end_datetime %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @week.user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Week
+      </button>
+      or
+      <a href="/weeks/<%= @week.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
