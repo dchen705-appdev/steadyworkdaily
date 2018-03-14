@@ -57,6 +57,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_weekly_sub_task" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for week_id -->
+      <input type="hidden" name="week_id" value="<%= @week.id %>">
+
+      <!-- Label and input for task_id -->
+      <div class="form-group">
+        <label for="task_id" class="control-label">
+          Task
+        </label>
+
+        <%= select_tag(:task_id, options_from_collection_for_select(Task.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for task_name -->
+      <div class="form-group">
+        <label for="task_name" class="control-label">
+          Task name
+        </label>
+
+        <input type="text" id="task_name" name="task_name" placeholder="Task name" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Weekly Sub Task
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

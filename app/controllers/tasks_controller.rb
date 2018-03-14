@@ -16,6 +16,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    @weekly_sub_task = WeeklySubTask.new
     @task = Task.find(params[:id])
 
     render("tasks/show.html.erb")
