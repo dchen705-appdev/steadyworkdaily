@@ -33,7 +33,7 @@
           Task
         </label>
 
-        <input type="text" id="task_id" name="task_id" placeholder="Task" class="form-control" value="<%= @weekly_sub_task.task_id %>">
+        <%= select_tag(:task_id, options_from_collection_for_select(Task.all, :id, :user_id, @weekly_sub_task.task_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for task_name -->
