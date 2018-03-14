@@ -1,4 +1,6 @@
 ActiveAdmin.register User do
+
+ permit_params :email, :password, :self_allocated_daily_work_time, :self_allocated_weekly_work_time
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
