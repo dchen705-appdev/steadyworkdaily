@@ -49,8 +49,6 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-
-    @task.user_id = params[:user_id]
     @task.deadline = params[:deadline]
     @task.status = params[:status]
     @task.name = params[:name]
