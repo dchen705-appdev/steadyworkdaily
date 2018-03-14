@@ -1,6 +1,7 @@
 class WeeksController < ApplicationController
   def index
-    @weeks = Week.page(params[:page]).per(10)
+    @q = Week.ransack(params[:q])
+    @weeks = @q.result(:distinct => true).includes(:user, :weekly_tasks).page(params[:page]).per(10)
 
     render("weeks/index.html.erb")
   end
