@@ -17,7 +17,7 @@
 
       <% @weekly_sub_tasks.each do |weekly_sub_task| %>
       <tr>
-        <td><%= weekly_sub_task.week_id %></td>
+        <td><%= weekly_sub_task.week.start_datetime %></td>
         <td><%= weekly_sub_task.task_id %></td>
         <td><%= weekly_sub_task.task_name %></td>
         <td>
