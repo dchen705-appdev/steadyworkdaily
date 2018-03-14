@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root :to => "tasks#index"
   # Routes for the Weekly_sub_task resource:
   # CREATE
