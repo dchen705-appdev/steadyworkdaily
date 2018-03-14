@@ -24,7 +24,7 @@
           Week
         </label>
 
-        <input type="text" id="week_id" name="week_id" placeholder="Week" class="form-control" value="<%= @weekly_sub_task.week_id %>">
+        <%= select_tag(:week_id, options_from_collection_for_select(Week.all, :id, :start_datetime, @weekly_sub_task.week_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for task_id -->
